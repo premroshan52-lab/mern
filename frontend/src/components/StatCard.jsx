@@ -1,9 +1,22 @@
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 
-export default function StatCard({ title, value }) {
+function StatCard({ name, price, onBuy }) {
   return (
-    <div className="bg-white p-5 rounded-xl border">
-      <p className="text-slate-500">{title}</p>
-      <h2 className="text-3xl font-bold mt-3">{value}</h2>
-    </div>
-  );
+    <Card className="p-5 bg-white text-black">
+
+      <h2 className="text-xl font-bold text-black">
+        {name}
+      </h2>
+
+      <p>Price: ₹{price}</p>
+
+      <Button onClick={onBuy}>
+        Buy Now
+      </Button>
+
+    </Card>
+  )
 }
+
+export default StatCard

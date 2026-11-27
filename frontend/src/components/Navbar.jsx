@@ -1,16 +1,12 @@
-
-import { Activity, Bell } from "lucide-react";
-
-export default function Navbar() {
+function Navbar() {
   return (
-    <nav className="h-16 bg-white border-b flex justify-between items-center px-6">
-      <h1 className="text-xl font-bold text-blue-600">
-        PulseMonitor
+    <nav className="bg-green-800 text-white p-4 flex justify-between items-center">
+      <h1 className="text-2xl font-bold">
+        Campus Marketplace
       </h1>
-      <div className="flex gap-4 items-center">
-        <Bell />
-        <span className="bg-blue-100 p-2 rounded-full">A</span>
-      </div>
+      <p>Student</p>
     </nav>
-  );
+  )
 }
+
+export default Navbar

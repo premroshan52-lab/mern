@@ -1,30 +1,36 @@
+import { useState, useEffect } from 'react'
+import StatCard from '../components/StatCard'
 
-export default function Dashboard() {
+function DashBoard() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    document.title = `Orders: ${count}`
+  }, [count])
+
   return (
-    <div className="min-h-screen bg-slate-50">
-      <h1 className="bg-blue-600 text-white text-3xl font-bold p-6">
-        PulseMonitor Dashboard
-      </h1>
+    <div className="flex-1 bg-gray-100 p-6 text-black">
 
-      <div className="p-6">
-        <h2 className="text-2xl font-bold text-slate-800">
-          Welcome to PulseMonitor!
-        </h2>
+      <h2 className="mb-5 text-2xl font-bold">
+        Available Products
+      </h2>
 
-        <p className="text-slate-500 mt-2">
-          Monitor your systems and check their performance.
-        </p>
+      <p className="mb-4">Total Orders: {count}</p>
 
-        <div className="bg-white p-5 mt-6 rounded-lg border">
-          <h3 className="font-bold text-lg">System Overview</h3>
-          <p className="text-slate-500 mt-2">
-            All your system information in one place.
-          </p>
-          <p className="text-green-600 mt-3 font-semibold">
-            ● Monitoring Dashboard Ready
-          </p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <StatCard name="Java Book" price={250}
+          onBuy={() => setCount(count + 1)} />
+
+        <StatCard name="Calculator" price={500}
+          onBuy={() => setCount(count + 1)} />
+
+        <StatCard name="Laptop Bag" price={700}
+          onBuy={() => setCount(count + 1)} />
+
       </div>
     </div>
-  );
+  )
 }
+
+export default DashBoard
